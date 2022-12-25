@@ -37,29 +37,29 @@ let Sort=picturs.sort(()=>{
    return 0.5 -Math.random()
 })
 
-function start(){
 
-    let Imag=document.createElement("img");
-    Imag.setAttribute("src",picturs[Random].Ima)
-    Imag.setAttribute("id",picturs[Random].id);
-   Imag.setAttribute("class",picturs[Random].name);
-   let Name=Imag.getAttribute("class")
-   collected_head.push(Name)
-
-    
-   //  clicked_taget.push(Head_pic)
-    Head.appendChild(Imag);
-     
-   for(let i=0;i<3;i++){
-      let Pictures=document.createElement("img");
-      Pictures.setAttribute("src","pic.jpg/Banner.jpg")
-      Pictures.setAttribute("data-id",i)
-      OBject.appendChild(Pictures)
-      Pictures.addEventListener("click", checkAction)
+ Head_img= ()=>{
+      let Imag=document.createElement("img");
+      Imag.setAttribute("src",picturs[Random].Ima)
+      Imag.setAttribute("id",picturs[Random].id);
+     Imag.setAttribute("class",picturs[Random].name);
+     let Name=Imag.getAttribute("class")
+     collected_head.push(Name)
+     //  clicked_taget.push(Head_pic)
+      Head.appendChild(Imag);
    }
-
-
-}
+ Head_img()
+    function body(){
+      for(let i=0;i<3;i++){
+         let Pictures=document.createElement("img");
+         Pictures.setAttribute("src","pic.jpg/Banner.jpg")
+         Piclctures.setAttribute("data-id",i)
+         OBject.appendChild(Pictures)
+         Pictures.addEventListener("click", checkAction)
+      }
+    }
+    body()
+   
 // for timer
 /*let seconds=0;
 let minutes=0;
@@ -82,7 +82,6 @@ function timer(){
 }*/
   
 // window.setInterval(timer,100)
-start();
 function checkAction(){
    
    let pictur_id=this.getAttribute("data-id")
@@ -103,7 +102,7 @@ function compaireAction(){
    let ima=document.querySelectorAll("#objects img")
    console.log(ima)
    if(collectedDice_name[0]===collected_head[0]){
-      console.log("correct")
+      setTimeout(Head_img,600)
    }else{
       ima[Dice_id[0]].setAttribute("src","pic.jpg/Banner.jpg")
    }
